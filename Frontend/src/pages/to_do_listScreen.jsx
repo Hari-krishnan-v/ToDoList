@@ -5,7 +5,7 @@ import useAuthStore from "../store/auth.store.js";
 import {useNavigate} from "react-router-dom";
 
 const ToDoListScreen = () => {
-    const { todolist, addToDo ,logout,loading} = useAuthStore();
+    const { todolist, addToDo ,logout,loading,user} = useAuthStore();
     const [showDialog, setShowDialog] = useState(false);
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -28,8 +28,8 @@ const ToDoListScreen = () => {
             <div className="bg-gradient-to-b from-[#202228] to-[#13151a] p-8 rounded-lg shadow-lg w-full max-w-[800px]">
                 {/* Header */}
                 <div className="flex items-center justify-between p-4">
-                    <h2 className="text-2xl font-bold mb-6 text-center">My To-Do List</h2>
-                    <button className="bg-red-800 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-200"
+                    <h2 className="text-2xl font-bold mb-6 text-center">{user.username}'s To-Do List</h2>
+                    <button className="bg-red-800 text-white px-4 py-2 ro.unded-md hover:bg-blue-700 transition duration-200"
                         onClick={handleLogout}
                     >
                         Logout
